@@ -5,17 +5,14 @@
 void LCD_Init(void)
 {
 	LCD_Command_Dir = 0xFF;  //intialise command port as output
-	LCD_Data_Dir = 0xF0;	 //intialise data port i.e D7-D4  as output	
-//	LCD_Command_Port &= ~(1<<EN);
-//	_delay_ms(20);			
+	LCD_Data_Dir = 0xF0;	 //intialise data port i.e D7-D4  as output				
 	
 	LCD_Command (0x33);		//initialize in 4-bit mode
 	LCD_Command (0x32);		//initialize in 4-bit mode
 	LCD_Command(0x28);     //2 lines and 5*7 matrix for 4bit mode
 	LCD_Command (0x0c);    //display on cursor off
-//	_delay_ms(1);
 	LCD_Command (0x06);		//autoincrement cursor
-	LCD_Command (0x01);		//clear
+	LCD_Command (0x01);		//clear screen
 }
 
 void LCD_Clear(void)		// LCD function to clear display
